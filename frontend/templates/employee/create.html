@@ -1,0 +1,55 @@
+<div class="page-header headerTitle">
+    <h1> <i class="fa fa-user"> </i> New Employee</h1>
+</div>
+<form class="form-horizontal" role="form" name="addEmployeeForm">
+    <div class="form-group" ng-class="{ 'has-error' : addEmployeeForm.name.$invalid && submitted }">
+        <label class="control-label col-sm-4">Name :</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="name" ng-model="formData.Name" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-4">Age :</label>
+        <div class="col-sm-4">
+            <input type="number" class="form-control" name="age" ng-model="formData.Age">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-4">NickName :</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" name="nickname" ng-model="formData.NickName">
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label col-sm-4">Employee :</label>
+        <div class="col-sm-4">
+            <input type="checkbox" class="form-control" name="nickname" ng-model="formData.Employee" >
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-4">JobTitle :</label>
+        <div class="col-sm-4">
+          <select class="form-control" id="sel1" name="jobtitle" ng-model="formData.JobTitle">
+              <option>Founder and CEO</option>
+              <option>Tuttofare</option>
+              <option>Header Chef</option>
+              <option>iData Chef</option>
+              <option>InternShip</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-4">Year :</label>
+        <div class="col-sm-4">
+          <select class="form-control" id="sel1" name="jobtitle" ng-model="formData.Year">
+              <option ng-repeat="y in [2010,2011,2012,2013,2014,2015,2016,2017]">{{y}}</option>
+            </select>
+        </div>
+    </div>
+</form>
+<div class="btn-group" role="group" aria-label="...">
+    <a ui-sref="home" class="btn btn-default"> <i class="fa fa-chevron-left" aria-hidden="true"></i> Back </a>
+    <a ng-click="createEmployee(addEmployeeForm)" class="btn btn-info"> Save <i class="fa fa-plus" aria-hidden="true"></i></a>
+</div>

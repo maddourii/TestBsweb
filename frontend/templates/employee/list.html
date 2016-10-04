@@ -1,0 +1,57 @@
+
+    <div class="page-header headerTitle">
+        <h1><i class="fa fa-users"> </i> Employees</h1>
+    </div>
+        <a ui-sref="employeeAdd" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Create New </a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="col-md-2" ng-click="sortType = 'Name'; sortReverse = !sortReverse">
+                      Name
+                      <span ng-show="sortType == 'Name' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'Name' && sortReverse" class="fa fa-caret-up"></span>
+                    </th>
+                    <th class="col-md-2" ng-click="sortType = 'JobTitle'; sortReverse = !sortReverse">
+                      JobTitle
+                      <span ng-show="sortType == 'JobTitle' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'JobTitle' && sortReverse" class="fa fa-caret-up"></span>
+                    </th>
+                    <th class="col-md-1" ng-click="sortType = 'Age'; sortReverse = !sortReverse">
+                      Age
+                      <span ng-show="sortType == 'Age' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'Age' && sortReverse" class="fa fa-caret-up"></span>
+                    </th>
+                    <th class="col-md-2">NickName</th>
+                    <th class="col-md-2">Employee</th>
+                    <th class="col-md-1" ng-click="sortType = 'Year'; sortReverse = !sortReverse">
+                      Year
+                      <span ng-show="sortType == 'Year' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'Year' && sortReverse" class="fa fa-caret-up"></span>
+                    </th>
+                    <th class="col-md-2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="e in employees | orderBy:sortType:sortReverse track by $index">
+                    <td class="col-md-2">{{e.Name}}</td>
+                    <td class="col-md-2">{{e.JobTitle}}</td>
+                    <td class="col-md-1">{{e.Age}}</td>
+                    <td class="col-md-2">{{e.NickName}}</td>
+                    <td class="col-md-2">
+                      <i ng-show="{{e.Employee}}"class="fa fa-check-circle" aria-hidden="true"></i>
+                      <i ng-show="{{!e.Employee}}"class="fa fa-circle" aria-hidden="true"></i>
+                    </td>
+                    <td class="col-md-1">{{e.Year}}</td>
+                    <td class="col-md-2">
+                        <div class="btn-group" role="group" aria-label="...">
+                            <a ui-sref="employeeDetails({ id: e._id })" class="btn btn-xs btn-default"> <i class="fa fa-list-alt"> Details</i></a>
+                            <a ui-sref="employeeEdit({ id: e._id })" class="btn btn-xs btn-success"> <i class="fa fa-pencil"> Edit</i></a>
+                            <a class="btn btn-xs btn-danger" ng-click="deleteEmployee($event,e)"> <i class="fa fa-trash-o"></i> Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

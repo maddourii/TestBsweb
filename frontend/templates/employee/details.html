@@ -1,0 +1,70 @@
+<div class="page-header headerTitle">
+    <h1> <i class="fa fa-user"> </i> Employee Details</h1>
+</div>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-default">
+        <div class="row ">
+            <div class="col-sm-4 ">
+                Name
+            </div>
+            <div class="col-sm-8 ">
+                {{employee.Name}}
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item list-group-item-default">
+        <div class="row ">
+            <div class="col-sm-4 ">
+                JobTitle
+            </div>
+            <div class="col-sm-8 ">
+                {{employee.JobTitle}}
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item list-group-item-default">
+        <div class="row ">
+            <div class="col-sm-4 ">
+                Age
+            </div>
+            <div class="col-sm-8 ">
+                {{employee.Age}}
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item list-group-item-default">
+        <div class="row ">
+            <div class="col-sm-4 ">
+                NickName
+            </div>
+            <div class="col-sm-8 ">
+                {{employee.NickName}}
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item list-group-item-default">
+        <div class="row ">
+            <div class="col-sm-4 ">
+                Employee
+            </div>
+            <div class="col-sm-8 ">
+                <i ng-show="{{employee.Employee}}" class="fa fa-check-circle" aria-hidden="true"></i>
+                <i ng-show="{{!employee.Employee}}" class="fa fa-circle" aria-hidden="true"></i>
+            </div>
+        </div>
+    </li>
+    <li class="list-group-item list-group-item-default">
+        <div class="row ">
+            <div class="col-sm-4 ">
+                Year
+            </div>
+            <div class="col-sm-8 ">
+                {{employee.Year}}
+            </div>
+        </div>
+    </li>
+</ul>
+<div class="btn-group" role="group" aria-label="...">
+    <a ui-sref="home" class="btn btn-default"> <i class="fa fa-chevron-left" aria-hidden="true"></i> Back </a>
+    <a ui-sref="employeeEdit({ id: employee._id })"  class="btn btn-success"> Edit <i class="fa fa-pencil" aria-hidden="true"></i></a>
+</div>
